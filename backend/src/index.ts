@@ -15,7 +15,7 @@ mongoose
 app.use(express.json());
 app.use(cors());
 
-app.use("/api/my/user", UserRoute)
+app.use("/api/user", UserRoute)
 
 app.listen(PORT, () => {
   console.log(`server running at port:${PORT}`);

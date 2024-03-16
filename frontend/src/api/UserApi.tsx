@@ -11,7 +11,7 @@ export const useCreateUser = () => {
 
   const createUserRequest = async(user: CreateUserRequest) => {
     const accessToken = await getAccessTokenSilently();
-      const res = await fetch(`/api/my/user`,{
+      const res = await fetch(`/api/user`,{
         method: "POST",
         headers: {
           Authorization: `Bearer ${accessToken}`,

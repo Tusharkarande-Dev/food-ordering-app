@@ -1,9 +1,14 @@
-import  { Router } from 'express';
-import createCurrentUser from '../controllers/user.controller';
-import { jwtCheck } from '../middlewares/auth';
+import { Router } from "express";
+import { jwtCheck, jwtParse } from "../middlewares/auth";
+import {
+  createCurrentUser,
+  updateCurrentUser,
+} from "../controllers/user.controller";
+import { validateUserRequest } from "../middlewares/validation";
 
 const router = Router();
 
-router.post("/", jwtCheck , createCurrentUser)
+router.post("/", jwtCheck, createCurrentUser);
+router.put("/", jwtCheck, jwtParse, validateUserRequest, updateCurrentUser);
 
 export default router;
